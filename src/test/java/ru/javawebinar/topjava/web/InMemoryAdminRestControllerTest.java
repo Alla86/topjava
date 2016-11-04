@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
+import static junit.framework.TestCase.assertEquals;
 import static ru.javawebinar.topjava.UserTestData.ADMIN;
 import static ru.javawebinar.topjava.UserTestData.USER;
 
@@ -46,8 +47,8 @@ public class InMemoryAdminRestControllerTest {
     public void testDelete() throws Exception {
         controller.delete(UserTestData.USER_ID);
         Collection<User> users = controller.getAll();
-        Assert.assertEquals(users.size(), 1);
-        Assert.assertEquals(users.iterator().next(), ADMIN);
+        assertEquals(users.size(), 1);
+        assertEquals(users.iterator().next(), ADMIN);
     }
 
     @Test(expected = NotFoundException.class)
